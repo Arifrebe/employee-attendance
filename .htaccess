@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Pastikan path 404.php benar
+ErrorDocument 404 /404.php
+
+# URL rewriting: redirect file atau direktori yang tidak ada ke index.php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
